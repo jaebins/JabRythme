@@ -1,0 +1,64 @@
+/* 서론 */
+.Main-head-users{
+    display: flex;
+    justify-content: right;
+}
+.Main-head-users-user{
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: bold;
+    padding-right: 10px;
+}
+.Main-head{
+    margin-top: 10px;
+    text-align: center;
+}
+#Main-head-title{
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Bagel Fat One', cursive;
+}
+.Main-neck{
+    background: linear-gradient(#ebfffe, #6af1eb);
+    padding-bottom: 50px;
+}
+
+/* 본문 */
+.Main-body{
+    padding-top: 130px;
+    text-align: center;
+}
+#Main-body-start{
+    background-color: #ff5c5c;
+    padding-top: 170px;
+    padding-bottom: 170px;
+    padding-left: 190px;
+    padding-right: 190px;
+    border: 0px;
+    border-radius: 100%;
+    color: white;
+    font-family: 'Bagel Fat One', cursive;
+    font-size: 80px;
+    font-weight: bold;
+
+    animation: rotate_start 5s linear infinite;
+    transform-origin: 50% 50%;
+}
+
+#Main-body-start:hover{
+    cursor: pointer;
+    background-color: #6cbd7d;
+}
+
+@keyframes rotate_start{
+    0% {
+        box-shadow: 10px 10px 5px  #4d0505 inset;
+    }
+    50%{
+        box-shadow: 20px 20px 1px  #4d0505 inset;
+    }
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 10px 10px 5px  #4d0505 inset;
+    }
+}
