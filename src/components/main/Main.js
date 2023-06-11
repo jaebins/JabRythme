@@ -13,7 +13,7 @@ function App() {
       </div>
       <div className="Main-neck"></div>
       <div className="Main-body">
-        <button id="Main-body-start">♬</button>
+        <button id="Main-body-start" onClick={() => window.location.href="/select"}>♬</button>
       </div>
     </div>
   );

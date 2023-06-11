@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Main from './Main';
+import Main from './components/main/Main.js';
+import Select from './components/select/Select.js';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Main />
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Main/>}></Route>
+        <Route path='/select' element={<Select/>}></Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 

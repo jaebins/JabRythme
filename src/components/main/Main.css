@@ -30,10 +30,7 @@
 }
 #Main-body-start{
     background-color: #ff5c5c;
-    padding-top: 170px;
-    padding-bottom: 170px;
-    padding-left: 190px;
-    padding-right: 190px;
+    padding: 10%;
     border: 0px;
     border-radius: 100%;
     color: white;
