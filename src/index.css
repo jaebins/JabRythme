@@ -1,9 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
 
 body{
     padding: 0px;
     margin: 0px;
     overflow-x: hidden;
     overflow-y: hidden;
+}
+img{
+    display: block;
+    margin: auto;
+}
+
+.head-title{
+    cursor: pointer;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: 'Bagel Fat One', cursive;
 }

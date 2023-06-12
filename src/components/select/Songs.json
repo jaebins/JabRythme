@@ -1,0 +1,30 @@
+{
+    
+    "songs":[
+        {
+            "id": 1,
+            "title": "Summer Walk",
+            "artist": "Olexy"
+        },
+        {
+            "id": 2,
+            "title": "Eternity",
+            "artist": "lemonmusicstudio"    
+        },
+        {
+            "id": 3,
+            "title": "A call to the soul",
+            "artist": "markotopa"    
+        },
+        {
+            "id": 4,
+            "title": "Unlock Me",
+            "artist": "prazkhanal"    
+        },
+        {
+            "id": 5,
+            "title": "Reflected Light",
+            "artist": "SergePavkinMusic"    
+        }
+    ]
+}

@@ -9,7 +9,7 @@ function App() {
           <div className="Main-head-users-user">회원가입</div>
           <div className="Main-head-users-user">로그인</div>
         </div>
-        <div id="Main-head-title">JabRythme</div>
+        <div class="head-title" onClick={() => window.location.href=`${process.env.PUBLIC_URL}/`}>JabRythme</div>
       </div>
       <div className="Main-neck"></div>
       <div className="Main-body">

@@ -1,0 +1,70 @@
+.Select-head{
+    padding-left: 10px;
+}
+.Select-neck{
+    padding: 20px;
+    background: linear-gradient(#84fab0, #8fd3f4);
+}
+
+.Select-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+    margin-left: 10%;
+}
+.Select-body-song{
+    border: 2px solid gray;
+    margin-bottom: 40px;
+}
+.Select-body-nowSong{
+    cursor: pointer;
+    width: 1100px;
+    height: 300px;
+    border-radius: 100%;
+}
+.Select-body-visibleSong{
+    background: linear-gradient(#a6c0fe, #f68084);
+    width: 800px;
+    height: 30px;
+}
+.Select-body-sides{
+    margin-left: 50px;
+}
+#Select-body-arrow{
+    cursor: pointer;
+    width: 80px;
+    height: 150px;
+}
+#Select-body-songTitle{
+    border: 3px solid rgb(0, 47, 255);
+    padding-top: 15px;
+    text-align: center;
+    font-family: 'Nanum Pen Script', cursive;
+    font-weight: bold;
+    font-size: 40px;
+}
+
+.Select-foot{
+    margin-top: 30px;
+}
+.Select-foot-levels{
+    display: flex;
+    justify-content: center;
+}
+#Select-foot-level{
+    cursor: pointer;
+    transform: rotate(45deg);
+    background-color: #fbffd2;
+    border: 5px solid black;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: 'Kablammo', cursive;
+    font-weight: bold;
+    font-size: 40px;
+}
+#Select-foot-level:hover{
+    background-color: #8b8b80;
+}
