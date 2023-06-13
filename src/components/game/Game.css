@@ -1,0 +1,12 @@
+.Game{
+    background: linear-gradient(#89f7fe, #66a6ff);
+    padding-bottom: 1000px;
+}
+.Game-body{
+    display: flex;
+    justify-content: center;
+    padding-top: 3%;
+}
+.Game-body-judge{
+    border: 2px solid black;
+}

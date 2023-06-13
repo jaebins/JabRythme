@@ -1,5 +1,7 @@
+.Select{
+}
 .Select-head{
-    padding-left: 10px;
+    text-align: center;
 }
 .Select-neck{
     padding: 20px;
@@ -7,58 +9,80 @@
 }
 
 .Select-body{
+    border-top: 3px solid #86eec6;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
-    margin-left: 10%;
+    padding-left: 10%;
+    padding-right: 5%;
+    padding-top: 50px;
+    margin-top: 30px;
+}
+.Select-body-songsList{
+    margin-left: 150px;
 }
 .Select-body-song{
-    border: 2px solid gray;
+    box-shadow: gray 4px 4px 10px 5px;
+    border: 6px solid gray;
     margin-bottom: 40px;
 }
 .Select-body-nowSong{
     cursor: pointer;
-    width: 1100px;
-    height: 300px;
+    width: 800px;
+    height: 400px;
     border-radius: 100%;
 }
 .Select-body-visibleSong{
-    background: linear-gradient(#a6c0fe, #f68084);
-    width: 800px;
-    height: 30px;
+    width: 400px;
+    height: 10px;
+    margin-left: 25%;
 }
 .Select-body-sides{
-    margin-left: 50px;
+    margin-left: 150px;
 }
 #Select-body-arrow{
     cursor: pointer;
     width: 80px;
     height: 150px;
+    margin-left: 12.5%;
+}
+#Select-body-arrow:hover{
+    filter: brightness(50%);
 }
 #Select-body-songTitle{
-    border: 3px solid rgb(0, 47, 255);
-    padding-top: 15px;
+    background: linear-gradient(#a6c0fe, #f68084);
+    border: 1px solid rgb(0, 0, 0);
+    padding: 10px;
     text-align: center;
     font-family: 'Nanum Pen Script', cursive;
     font-weight: bold;
-    font-size: 40px;
+    font-size: 30px;
 }
 
+.Select-mainSize{
+    border-left: 3px solid #86eec6;
+    border-right: 3px solid #86eec6;
+    margin-left: 100px;
+    margin-right: 100px;
+    background-color: #bdfce4;
+}
 .Select-foot{
-    margin-top: 30px;
+    border-bottom: 3px solid #dfcf9e;
+    padding-top: 30px;
+    padding-bottom: 60px;
 }
 .Select-foot-levels{
     display: flex;
     justify-content: center;
 }
 #Select-foot-level{
+    animation: onOffEffect 2s linear infinite;
     cursor: pointer;
     transform: rotate(45deg);
     background-color: #fbffd2;
     border: 5px solid black;
-    margin-left: 50px;
-    margin-right: 50px;
+    margin-left: 80px;
+    margin-right: 80px;
     padding-left: 15px;
     padding-right: 15px;
     font-family: 'Kablammo', cursive;
@@ -66,5 +90,14 @@
     font-size: 40px;
 }
 #Select-foot-level:hover{
-    background-color: #8b8b80;
+    animation: none;
+    background-color: #f78324;
+}
+@keyframes onOffEffect{
+    50%{
+        background-color: #311694;
+    }
+    100%{
+        background-color: #fbffd2;
+    }
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import Users from "../users";
 import "./Select.css"
 import SongsList from "./Songs.json"
 
@@ -23,25 +24,24 @@ export default function Select(){
     return(
         <div className="Select">
             <div className="Select-head">
+                <Users></Users>
                 <div className="head-title" onClick={() => window.location.href=`${process.env.PUBLIC_URL}/`}>Title</div>
             </div>
             <div className="Select-neck">
             </div>
-            <div className="Select-body">
+            <div className="Select-body Select-mainSize">
                 <div className="Select-body-songsList">
-                    <img className="Select-body-song Select-body-visibleSong" src={songCount + 2 <= SONG_COUNT ? `${process.env.PUBLIC_URL}/imgs/song${songCount + 2}.jpg` : null}></img>
-                    <img className="Select-body-song Select-body-visibleSong" src={songCount + 1 <= SONG_COUNT ? `${process.env.PUBLIC_URL}/imgs/song${songCount + 1}.jpg` : null}></img>
+                    <img className="Select-body-song Select-body-visibleSong" src={songCount + 1 <= SONG_COUNT ? `${process.env.PUBLIC_URL}/imgs/song${songCount + 1}.jpg` : `${process.env.PUBLIC_URL}/imgs/white.jpg`}></img>
                     <img className="Select-body-song Select-body-nowSong" src={`${process.env.PUBLIC_URL}/imgs/song${songCount}.jpg`}></img>
-                    <img className="Select-body-song Select-body-visibleSong" src={songCount - 1 > 0 ? `${process.env.PUBLIC_URL}/imgs/song${songCount - 1}.jpg` : null}></img>
-                    <img className="Select-body-song Select-body-visibleSong" src={songCount - 2 > 0 ? `${process.env.PUBLIC_URL}/imgs/song${songCount - 2}.jpg` : null}></img>
+                    <img className="Select-body-song Select-body-visibleSong" src={songCount - 1 > 0 ? `${process.env.PUBLIC_URL}/imgs/song${songCount - 1}.jpg` : `${process.env.PUBLIC_URL}/imgs/white.jpg`}></img>
                 </div>
                 <div className="Select-body-sides">
-                    <img id="Select-body-arrow" onClick={() => changePage(1)} src={`${process.env.PUBLIC_URL}/imgs/arrow.png`} style={{marginBottom: "50px"}}></img>
-                    <div id="Select-body-songTitle">{SongsList.songs[songCount - 1].title.length <= 7 ? SongsList.songs[songCount - 1].title : SongsList.songs[songCount - 1].title.substring(0, 7) + ".."}</div>
-                    <img id="Select-body-arrow" onClick={() => changePage(-1)} src={`${process.env.PUBLIC_URL}/imgs/arrow.png`} style={{transform: "rotate(180deg)", marginTop: "100px"}}></img>
+                    <img id="Select-body-arrow" onClick={() => changePage(1)} src={`${process.env.PUBLIC_URL}/imgs/arrow.png`} style={{marginBottom: ""}}></img>
+                    <div id="Select-body-songTitle">{SongsList.songs[songCount - 1].title}</div>
+                    <img id="Select-body-arrow" onClick={() => changePage(-1)} src={`${process.env.PUBLIC_URL}/imgs/arrow.png`} style={{transform: "rotate(180deg)", marginTop: ""}}></img>
                 </div>
             </div>
-            <div className="Select-foot">
+            <div className="Select-foot Select-mainSize">
                 <div className="Select-foot-levels">
                     <div id="Select-foot-level">1</div>
                     <div id="Select-foot-level">3</div>

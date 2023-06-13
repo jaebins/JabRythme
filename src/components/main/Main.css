@@ -1,16 +1,5 @@
 /* 서론 */
-.Main-head-users{
-    display: flex;
-    justify-content: right;
-}
-.Main-head-users-user{
-    cursor: pointer;
-    font-size: 20px;
-    font-weight: bold;
-    padding-right: 10px;
-}
 .Main-head{
-    margin-top: 10px;
     text-align: center;
 }
 .Main-neck{
