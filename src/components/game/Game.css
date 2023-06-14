@@ -3,9 +3,11 @@
     padding-bottom: 1000px;
 }
 .Game-body{
+    top: 105px;
+    position: fixed;
     display: flex;
     justify-content: center;
-    padding-top: 3%;
+    left: 532px;
 }
 .Game-body-judge{
     border: 2px solid black;

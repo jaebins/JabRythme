@@ -33,9 +33,9 @@
     border-radius: 100%;
 }
 .Select-body-visibleSong{
-    width: 400px;
+    width: 600px;
     height: 10px;
-    margin-left: 25%;
+    margin-left: 12.5%;
 }
 .Select-body-sides{
     margin-left: 150px;
@@ -49,7 +49,7 @@
 #Select-body-arrow:hover{
     filter: brightness(50%);
 }
-#Select-body-songTitle{
+/* #Select-body-songTitle{
     background: linear-gradient(#a6c0fe, #f68084);
     border: 1px solid rgb(0, 0, 0);
     padding: 10px;
@@ -57,7 +57,7 @@
     font-family: 'Nanum Pen Script', cursive;
     font-weight: bold;
     font-size: 30px;
-}
+} */
 
 .Select-mainSize{
     border-left: 3px solid #86eec6;

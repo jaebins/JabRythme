@@ -25,7 +25,7 @@ export default function Select(){
         <div className="Select">
             <div className="Select-head">
                 <Users></Users>
-                <div className="head-title" onClick={() => window.location.href=`${process.env.PUBLIC_URL}/`}>Title</div>
+                <div className="head-title" onClick={() => window.location.href=`${process.env.PUBLIC_URL}/`}>{SongsList.songs[songCount - 1].title}</div>
             </div>
             <div className="Select-neck">
             </div>
@@ -37,7 +37,6 @@ export default function Select(){
                 </div>
                 <div className="Select-body-sides">
                     <img id="Select-body-arrow" onClick={() => changePage(1)} src={`${process.env.PUBLIC_URL}/imgs/arrow.png`} style={{marginBottom: ""}}></img>
-                    <div id="Select-body-songTitle">{SongsList.songs[songCount - 1].title}</div>
                     <img id="Select-body-arrow" onClick={() => changePage(-1)} src={`${process.env.PUBLIC_URL}/imgs/arrow.png`} style={{transform: "rotate(180deg)", marginTop: ""}}></img>
                 </div>
             </div>
