@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bagel+Fat+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kablammo&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
 body{
     padding: 0px;
     margin: 0px;
@@ -20,14 +20,23 @@ img{
     font-family: 'Bagel Fat One', cursive;
 }
 .users{
-    margin-top: 10px;
     display: flex;
-    justify-content: right;
-}
-.users-user{
-    cursor: pointer;
-    padding-right: 10px;
+    margin-top: 10px;
     font-family: 'Nanum Pen Script', cursive;
+}
+.users-setting{
+    cursor: pointer;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 30px;
+}
+.users-userInfo{
+    display: flex;
+    margin-left: auto;
+}
+.users-userInfo-user{
+    cursor: pointer;
+    padding-right: 30px;
     font-size: 30px;
     font-weight: bold;
 }

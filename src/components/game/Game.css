@@ -2,6 +2,37 @@
     background: linear-gradient(#89f7fe, #66a6ff);
     padding-bottom: 1000px;
 }
+#Game-back{
+    cursor: pointer;
+    position: fixed;
+    left: 20px;
+    z-index: 10;
+    text-shadow: black 2px 2px 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 60px;
+}
+#Game-combo{
+    position: fixed;
+    left: 730px;
+    top: 30%;
+    z-index: 10;
+    text-shadow: black 2px 2px 10px;
+    text-align: center;
+    font-family: 'Moirai One', cursive;
+    font-weight: bold;
+    font-size: 60px;
+}
+#Game-successLevel{
+    position: fixed;
+    left: 700px;
+    top: 60%;
+    z-index: 10;
+    letter-spacing: 10px;
+    text-align: center;
+    font-family: 'Kablammo', cursive;
+    font-size: 80px;
+}
 .Game-body{
     top: 105px;
     position: fixed;
@@ -11,4 +42,16 @@
 }
 .Game-body-judge{
     border: 2px solid black;
+}
+
+@keyframes combo-effect{
+    100%{
+        top: 25%;
+    }
+}
+@keyframes successLevel-effect{
+    100%{
+        font-size: 50px;
+        text-shadow: red 3px 3px 1px;
+    }
 }

@@ -19,7 +19,7 @@
     margin-top: 30px;
 }
 .Select-body-songsList{
-    margin-left: 150px;
+    margin-right: 80px;
 }
 .Select-body-song{
     box-shadow: gray 4px 4px 10px 5px;
@@ -38,16 +38,19 @@
     margin-left: 12.5%;
 }
 .Select-body-sides{
-    margin-left: 150px;
+    position: fixed;
+    top: 350px;
+    right: 200px;
 }
 #Select-body-arrow{
+    filter: brightness(0%);
     cursor: pointer;
     width: 80px;
     height: 150px;
     margin-left: 12.5%;
 }
 #Select-body-arrow:hover{
-    filter: brightness(50%);
+    filter: brightness(70%);
 }
 /* #Select-body-songTitle{
     background: linear-gradient(#a6c0fe, #f68084);

@@ -18,6 +18,14 @@ export default function Select(){
         console.log(songCount);
     }
 
+    const selectSong = (diff) => {
+        var bpm = SongsList.songs[songCount - 1].bpm;
+        var songTitle = SongsList.songs[songCount - 1].title;
+        var diff = diff;
+
+        window.location.href = `${process.env.PUBLIC_URL}/game?bpm=${bpm}&songTitle=${songTitle}$diff=${diff}`
+    }
+
     useEffect(() => {
     }, [])
 
@@ -42,10 +50,10 @@ export default function Select(){
             </div>
             <div className="Select-foot Select-mainSize">
                 <div className="Select-foot-levels">
-                    <div id="Select-foot-level">1</div>
-                    <div id="Select-foot-level">3</div>
-                    <div id="Select-foot-level">5</div>
-                    <div id="Select-foot-level">7</div>
+                    <div id="Select-foot-level" onClick={() => selectSong(SongsList.songs[songCount - 1].diff.eazy)}>{SongsList.songs[songCount - 1].diff.eazy}</div>
+                    <div id="Select-foot-level" onClick={() => selectSong(SongsList.songs[songCount - 1].diff.normal)}>{SongsList.songs[songCount - 1].diff.normal}</div>
+                    <div id="Select-foot-level" onClick={() => selectSong(SongsList.songs[songCount - 1].diff.hard)}>{SongsList.songs[songCount - 1].diff.hard}</div>
+                    <div id="Select-foot-level" onClick={() => selectSong(SongsList.songs[songCount - 1].diff.crazy)}>{SongsList.songs[songCount - 1].diff.crazy}</div>
                 </div>
             </div>
         </div>

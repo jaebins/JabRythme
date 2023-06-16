@@ -3,28 +3,63 @@
     "songs":[
         {
             "id": 1,
-            "title": "Summer Walk",
-            "artist": "Olexy"
+            "title": "Summer walk",
+            "artist": "Olexy",
+            "bpm": 81,
+            "diff": {
+                "eazy": 1,
+                "normal": 3,
+                "hard": 5,
+                "crazy": 7
+            }
         },
         {
             "id": 2,
-            "title": "Eternity",
-            "artist": "lemonmusicstudio"    
+            "title": "Leva Eternity",
+            "artist": "lemonmusicstudio",
+            "bpm": 93,
+            "diff": {
+                "eazy": 1,
+                "normal": 3,
+                "hard": 5,
+                "crazy": 7
+            }    
         },
         {
             "id": 3,
             "title": "A call to the soul",
-            "artist": "markotopa"    
+            "artist": "markotopa",    
+            "bpm": 128,
+            "diff": {
+                "eazy": 1,
+                "normal": 3,
+                "hard": 5,
+                "crazy": 7
+            }
         },
         {
             "id": 4,
-            "title": "Unlock Me",
-            "artist": "prazkhanal"    
+            "title": "Unlock me",
+            "artist": "prazkhanal",
+            "bpm": 110,
+            "diff": {
+                "eazy": 1,
+                "normal": 3,
+                "hard": 5,
+                "crazy": 7
+            }    
         },
         {
             "id": 5,
-            "title": "Reflected Light",
-            "artist": "SergePavkinMusic"    
+            "title": "Reflected light",
+            "artist": "SergePavkinMusic",
+            "bpm": 140,
+            "diff": {
+                "eazy": 1,
+                "normal": 3,
+                "hard": 5,
+                "crazy": 7
+            }    
         }
     ]
 }
