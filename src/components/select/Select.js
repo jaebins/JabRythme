@@ -6,7 +6,7 @@ import SongsList from "./Songs.json"
 const SONG_COUNT = 5;
 
 export default function Select(){
-    const[songCount, setSongCount] = useState(2); 
+    const[songCount, setSongCount] = useState(1); 
 
     const changePage = (addNum) => {
         if(addNum == -1 && songCount - 1 > 0){
@@ -23,7 +23,7 @@ export default function Select(){
         var songTitle = SongsList.songs[songCount - 1].title;
         var diff = diff;
 
-        window.location.href = `${process.env.PUBLIC_URL}/game?bpm=${bpm}&songTitle=${songTitle}$diff=${diff}`
+        window.location.href = `${process.env.PUBLIC_URL}/game?bpm=${bpm}&songTitle=${songTitle}&diff=${diff}`
     }
 
     useEffect(() => {

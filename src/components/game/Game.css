@@ -1,7 +1,113 @@
-.Game{
-    background: linear-gradient(#89f7fe, #66a6ff);
-    padding-bottom: 1000px;
+@keyframes backgroundAni{
+    0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
+
+.Game{
+    background: linear-gradient(-45deg, #89f7fe, #66a6ff);
+    padding-bottom: 1000px;
+    animation: backgroundAni 7s linear infinite;
+}
+.Game-head{
+    display: flex;
+}
+#Game-musicLength{
+    -webkit-appearance: none;
+    pointer-events: none;
+    position: fixed;
+    top: 30px;
+    left: 34%;
+    width: 550px;
+}
+#Game-musicLength:focus {
+    outline: none;
+  }
+  #Game-musicLength::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 23px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000;
+    background: #2975C2;
+    border: 2px solid #000000;
+  }
+  #Game-musicLength::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 20px;
+    width: 9px;
+    border-radius: 0px;
+    background: #0918E3;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: 0px;
+  }
+  #Game-musicLength:focus::-webkit-slider-runnable-track {
+    background: #2975C2;
+  }
+  #Game-musicLength::-moz-range-track {
+    width: 100%;
+    height: 23px;
+    cursor: pointer;
+    animate: 0.2s;
+    box-shadow: 1px 1px 1px #000000;
+    background: #2975C2;
+    border-radius: 5px;
+    border: 2px solid #000000;
+  }
+  #Game-musicLength::-moz-range-thumb {
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 20px;
+    width: 9px;
+    border-radius: 0px;
+    background: #0918E3;
+    cursor: pointer;
+  }
+  #Game-musicLength::-ms-track {
+    width: 100%;
+    height: 23px;
+    cursor: pointer;
+    animate: 0.2s;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  #Game-musicLength::-ms-fill-lower {
+    background: #2975C2;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #000000;
+  }
+  #Game-musicLength::-ms-fill-upper {
+    background: #2975C2;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    box-shadow: 1px 1px 1px #000000;
+  }
+  #Game-musicLength::-ms-thumb {
+    margin-top: 1px;
+    box-shadow: 1px 1px 1px #000000;
+    border: 1px solid #000000;
+    height: 20px;
+    width: 9px;
+    border-radius: 0px;
+    background: #0918E3;
+    cursor: pointer;
+  }
+  #Game-musicLength:focus::-ms-fill-lower {
+    background: #2975C2;
+  }
+  #Game-musicLength:focus::-ms-fill-upper {
+    background: #2975C2;
+  }
 #Game-back{
     cursor: pointer;
     position: fixed;
