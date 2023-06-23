@@ -3,6 +3,7 @@ import cookies from "react-cookies"
 import useInterval from "../../useInterval.js";
 import "./Game.css"
 import chart_json from "./Chart.json"
+import { clear } from "@testing-library/user-event/dist/clear.js";
 
 // /* x축은 532부터 154씩 나눠짐, Y축은 105에 시작, 760에 판정선에 닿음*/
 const KEYS = ["d", "f", "j", "k"]
@@ -23,8 +24,11 @@ export default function Game(){
         time: 1
     });
     const[music, setMusic] = useState(0);
-
+    const[isEnd, setIsEnd] = useState(false);
+ 
     const[songInfo, setSongInfo] = useState({})
+    const[rsInfo, setRsInfo] = useState({})
+    const noteEvents = useRef()
 
     const pressJudge = (key, judgeImg) => {
         document.getElementById(key).src = `${process.env.PUBLIC_URL}/imgs/${judgeImg}`
@@ -141,34 +145,45 @@ export default function Game(){
 
     // 키보드 입력 이벤트 적용
     useEffect(() => {
-        window.addEventListener("keypress", inputEvent);
+        if(!isEnd)
+            window.addEventListener("keypress", inputEvent);
     }, [inputEvent])
 
     useEffect(() => {
-        document.getElementById("Game-musicLength").value = music.currentTime;
+        if(music.currentTime >= music.duration){
+            setTimeout(() => {
+                console.log("조건 발동")
+                setIsEnd(true);
+            }, 3000)
+        }
+        else{
+            document.getElementById("Game-musicLength").value = music.currentTime;
+        }
     }, [music.currentTime])
     
     const noteEvent = useInterval(() => {
-        try{
-            let emp_chart = {
-                time: chart_json.pattern[0].time[Math.floor(Math.random() * chart_json.pattern[0].time.length)],
-                loc: chart_json.pattern[0].loc[Math.floor(Math.random() * chart_json.pattern[0].loc.length)], 
-                cnt : chart_json.pattern[0].cnt[Math.floor(Math.random() * chart_json.pattern[0].cnt.length)]
+        if(music.currentTime < music.duration){
+            try{
+                let emp_chart = {
+                    time: chart_json.pattern[0].time[Math.floor(Math.random() * chart_json.pattern[0].time.length)],
+                    loc: chart_json.pattern[0].loc[Math.floor(Math.random() * chart_json.pattern[0].loc.length)], 
+                    cnt : chart_json.pattern[0].cnt[Math.floor(Math.random() * chart_json.pattern[0].cnt.length)]
+                }
+                setChart(emp_chart);
+                // 내려오는 노트 정보
+                let note = notes.pop()
+                
+                // 내려오는 노트 정보 배열에 넣어줌
+                let downNotesArr = downNotes;
+                downNotesArr.push(note);
+                setDownNotes(downNotesArr);
+                
+                // 노트 나오는 위치 난수 설정
+                let index = Math.floor(Math.random() * 4)
+                downNote(note, JUDGE_X[index], JUDGE_Y[0], false);
+            } catch(e){
+                window.location.href = `${process.env.PUBLIC_URL}/select`
             }
-            setChart(emp_chart);
-            // 내려오는 노트 정보
-            let note = notes.pop()
-            
-            // 내려오는 노트 정보 배열에 넣어줌
-            let downNotesArr = downNotes;
-            downNotesArr.push(note);
-            setDownNotes(downNotesArr);
-            
-            // 노트 나오는 위치 난수 설정
-            let index = Math.floor(Math.random() * 4)
-            downNote(note, JUDGE_X[index], JUDGE_Y[0], false);
-        } catch(e){
-            window.location.href = `${process.env.PUBLIC_URL}/select`
         }
     }, (songInfo.downNotespawnDelay / chart.time) * 1000)
 
@@ -245,19 +260,34 @@ export default function Game(){
 
     return(
         <div className="Game" id="Game">
-            <audio id="Game-music"></audio>
-            <div className="Game-head">
-                <div id="Game-back" onClick={() => window.location.href=`${process.env.PUBLIC_URL}/select`}>◀</div>
-                <input id="Game-musicLength" type="range"></input>
-            </div>
-            <div id="Game-combo">{combo}<br/>combo!!</div>
-            <div id="Game-successLevel">{successLevel}</div>
-            <div className="Game-body">
-                <img className="Game-body-judge" id={`judge${KEYS[0]}`} src={`${process.env.PUBLIC_URL}/imgs/judgement.jpg`}></img>
-                <img className="Game-body-judge" id={`judge${KEYS[1]}`} src={`${process.env.PUBLIC_URL}/imgs/judgement.jpg`}></img>
-                <img className="Game-body-judge" id={`judge${KEYS[2]}`} src={`${process.env.PUBLIC_URL}/imgs/judgement.jpg`}></img>
-                <img className="Game-body-judge" id={`judge${KEYS[3]}`} src={`${process.env.PUBLIC_URL}/imgs/judgement.jpg`}></img>
-            </div>
+            {!isEnd ? 
+                <div>
+                    <audio id="Game-music"></audio>
+                    <div className="Game-head">
+                        <div id="Game-back" onClick={() => window.location.href=`${process.env.PUBLIC_URL}/select`}>◀</div>
+                        <input id="Game-musicLength" type="range"></input>
+                    </div>
+                    <div id="Game-combo">{combo}<br/>combo!!</div>
+                    <div id="Game-successLevel">{successLevel}</div>
+                    <div className="Game-body">
+                        <img className="Game-body-judge" id={`judge${KEYS[0]}`} src={`${process.env.PUBLIC_URL}/imgs/judgement.jpg`}></img>
+                        <img className="Game-body-judge" id={`judge${KEYS[1]}`} src={`${process.env.PUBLIC_URL}/imgs/judgement.jpg`}></img>
+                        <img className="Game-body-judge" id={`judge${KEYS[2]}`} src={`${process.env.PUBLIC_URL}/imgs/judgement.jpg`}></img>
+                        <img className="Game-body-judge" id={`judge${KEYS[3]}`} src={`${process.env.PUBLIC_URL}/imgs/judgement.jpg`}></img>
+                    </div>
+                </div>
+             :
+                <div className="Result">
+                    <div className="Result-head">
+                        <div id="Result-head-title">RESULT</div>
+                    </div>
+                    <div className="Result-body">
+                        <div id="Result-body-mCombo">MAX COMBO : {rsInfo.mCombo}</div>
+                        <div id="Result-body-score">SCORE : {rsInfo.score}</div>
+                        <div id="Result-body-rank">RANK : {rsInfo.rank}</div>
+                    </div>
+                </div>
+            }
         </div>
     )
 }

@@ -161,3 +161,31 @@
         text-shadow: red 3px 3px 1px;
     }
 }
+
+.Result{
+}
+.Result-head{
+  z-index: 100;
+  padding-top: 100px;
+  text-align: center;
+}
+#Result-head-title{
+  animation: resultTitleEffect 0.5s linear infinite;
+  font-size: 40px;
+  font-weight: bold;
+}
+.Result-body{
+  border: 2px solid black;
+  padding: 20px;
+  margin-top: 30px;
+  margin-left: 300px;
+  margin-right: 300px;
+  text-align: center;
+  font-family: 'Kablammo', cursive;
+  font-size: 30px;
+}
+@keyframes resultTitleEffect {
+  50%{
+    font-size: 50px;
+  }
+}
