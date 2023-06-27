@@ -11,7 +11,6 @@ const JUDGE_X = [532, 686, 840, 994]
 const JUDGE_Y = [105, 700, 830, 770, 740, 790]
 const KEYS_COUNT = 4;
 const APPEND_Y = 4;
-const MAX_ScrollSpeed = 7;
 
 export default function Game(){
     const[notes, setNotes] = useState([]);
@@ -24,24 +23,38 @@ export default function Game(){
         time: 1
     });
     const[music, setMusic] = useState(0);
+    const[isMusicEnd, setIsMusicEnd] = useState(false)
     const[isEnd, setIsEnd] = useState(false);
  
     const[songInfo, setSongInfo] = useState({})
-    const[rsInfo, setRsInfo] = useState({})
-    const noteEvents = useRef()
+    const[rsInfo, setRsInfo] = useState({
+        mCombo: 0,
+        score: 0
+    })
 
     const pressJudge = (key, judgeImg) => {
         document.getElementById(key).src = `${process.env.PUBLIC_URL}/imgs/${judgeImg}`
     }
 
-    const onScoresEffect = () => {
+    const changeRs = (score) => {
         dummbyCombo.current++;
         setCombo(dummbyCombo.current);
+
+        var emp_rsInfo = {
+            mCombo: dummbyCombo.current >= rsInfo.mCombo ? dummbyCombo.current : rsInfo.mCombo,
+            score: rsInfo.score += score
+        }
+
+        setRsInfo(emp_rsInfo);
+        console.log(rsInfo);
+    }
+
+    const comboEffect = () => {
         document.getElementById("Game-successLevel").style.animation = "successLevel-effect 0.1s linear infinite"
         document.getElementById("Game-combo").style.animation = "combo-effect 0.08s linear infinite";
         setTimeout(() => {
             document.getElementById("Game-combo").style.animation = "none";
-        document.getElementById("Game-successLevel").style.animation = "none"
+            document.getElementById("Game-successLevel").style.animation = "none"
         }, 80)
     }
 
@@ -132,8 +145,8 @@ export default function Game(){
                         // 성공하면 노트 디자인 안보이게함
                         inJudgeNotes[j].isSuccess = true;
                         inJudgeNotes[j].note.style = "display: none;"
-
-                        onScoresEffect();
+                        comboEffect();
+                        
                         break;
                     }
                 }
@@ -150,9 +163,10 @@ export default function Game(){
     }, [inputEvent])
 
     useEffect(() => {
-        if(music.currentTime >= music.duration){
+        setIsMusicEnd(music.currentTime >= music.duration)
+
+        if(isMusicEnd){
             setTimeout(() => {
-                console.log("조건 발동")
                 setIsEnd(true);
             }, 3000)
         }
@@ -162,7 +176,7 @@ export default function Game(){
     }, [music.currentTime])
     
     const noteEvent = useInterval(() => {
-        if(music.currentTime < music.duration){
+        if(!isMusicEnd){
             try{
                 let emp_chart = {
                     time: chart_json.pattern[0].time[Math.floor(Math.random() * chart_json.pattern[0].time.length)],
@@ -209,6 +223,8 @@ export default function Game(){
         // 100% 정확한 판정
         if(locY >= JUDGE_Y[4] && locY <= JUDGE_Y[5] && inJudgeNotes[0].isSuccess){
             setSuccessLevel("Nice!!");
+            changeRs(1500);
+            
             document.getElementById("Game-successLevel").style.color = "#f43b47";
 
             deleteNote(note);
@@ -224,6 +240,8 @@ export default function Game(){
             }
             else if(inJudgeNotes[0].isSuccess){
                 setSuccessLevel("Good!!");
+                changeRs(750);
+
                 document.getElementById("Game-successLevel").style.color = "#ff7eb3";
             }
 
@@ -239,7 +257,6 @@ export default function Game(){
     }
 
     const deleteNote = () => {
-        
         // 판정선에 닿은 내려오는 노트 스택에서 뺌
         let downNotesArr = downNotes;
         let note = downNotesArr.shift();
