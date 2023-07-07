@@ -1,0 +1,30 @@
+.Login-head{
+    margin-top: 150px;
+    text-align: center;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 60px;
+}
+
+.Login-body{
+    padding-bottom: 70px;
+    margin-left: 300px;
+    margin-right: 300px;
+    margin-top: 50px;
+    text-align: center;
+}
+.Login-infors{
+    width: 600px;
+    height: 25px;
+    margin-bottom: 15px;
+}
+.Login-submit{
+    cursor: pointer;
+    width: 610px;
+    height: 80px;
+    color: white;
+    background-color: dimgrey;
+    border: 0px;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+}

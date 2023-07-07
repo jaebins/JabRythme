@@ -12,40 +12,38 @@ export default function Login(){
         }
     }, [])
 
-    const loginProcess = () =>{
+    const registerProcess = () =>{
         let id = document.getElementById("id").value;
         let pw = document.getElementById("pw").value;
-        const url = `http://localhost:8000/loginProcess?id=${id}&pw=${pw}`;
-
-
+        const url = `http://localhost:8000/registerProcess?id=${id}&pw=${pw}`;
         axios.post(url, {
             headers:{
                 "access-control-allow-origin":"*"
             },
         }).then((res) =>{
-            if(res.data.length > 0){
-                cookies.save("id", res.data[0].id);
-                cookies.save("pw", res.data[0].id);
-                alert("로그인을 성공하였습니다.");
-                window.location.href = `${process.env.PUBLIC_URL}/`;
+            if(res.data === "suc"){
+                alert("회원가입을 성공하였습니다.");
+                window.location.href = `${process.env.PUBLIC_URL}/`
                 return 0;
             }
-            alert("로그인을 실패하였습니다.");
+            alert("회원가입을 실패하였습니다.");
         }).catch((err) => {
             alert(err);
         })
-    } 
+    }
 
     return(
         <div className="Login">
             <Users></Users>
             <div className="Login-head">
-                <div className="Login-head-title">LOGIN</div>
+                <div className="Login-head-title">REGISTER</div>
             </div>
             <div className="Login-body">
-                <input className="Login-infors" id="id" type="text" placeholder="아이디를 입력해주세요."></input><p/><p/>
-                <input className="Login-infors" autocomplete="off" id="pw" type="password" placeholder="비밀번호를 입력해주세요."></input><p/><p/>
-                <button className="Login-submit" onClick={() => loginProcess()}>로그인</button>
+                <form>
+                    <input className="Login-infors" id="id" type="text" placeholder="아이디를 입력해주세요."></input><p/><p/>
+                    <input className="Login-infors" autocomplete="off" id="pw" type="password" placeholder="비밀번호를 입력해주세요."></input><p/><p/>
+                    <button className="Login-submit" onClick={() => registerProcess()}>로그인</button>
+                </form>
             </div>
         </div>
     )
